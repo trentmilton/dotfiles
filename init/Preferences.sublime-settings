@@ -1,5 +1,7 @@
 {
-	"color_scheme": "Packages/Color Scheme - Default/Blackboard.tmTheme",
+	"theme": "Soda Dark 3.sublime-theme",
+	"soda_folder_icons": true,
+	"color_scheme": "Packages/User/Tomorrow-Night-Eighties.tmTheme",
 	"default_line_ending": "unix",
 	"detect_indentation": false,
 	"draw_white_space": "all",
@@ -22,6 +24,10 @@
 	"font_size": 15.0,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
 	"line_padding_bottom": 6,
 	"matchBracketsAngle": true,
 	"remember_open_files": false,
