@@ -52,7 +52,7 @@ alias dev="cd ~/Dropbox/Development/"
 alias sbp="source ~/.bash_profile"
 alias obp="subl ~/.bash_profile"
 
-# Github
+# Git
 alias gitl="git log"
 alias gita="git add -A"
 alias gitc="git commit -m $1"
