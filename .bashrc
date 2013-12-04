@@ -26,3 +26,6 @@ fi
 
 export PATH="/usr/local/heroku/bin:$PATH"
 export PATH="/Applications/Postgres.app/Contents/MacOS/bin:$PATH"
+
+# Allow autocompletion for GIT
+source ~/.git-completion.bash
