@@ -40,3 +40,23 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
+
+########################
+# Alias
+########################
+# Misc
+alias dev="cd ~/Dropbox/Development/"
+alias sbp="source ~/.bash_profile"
+alias obp="subl ~/.bash_profile"
+
+# Github
+alias gl="git log"
+alias gaa="git add -a"
+
+# Heroku
+alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
+
+# Ignore certain files and make it colourful
+export CLICOLOR=true
+export CLICOLOR_FORCE=true
+function ll { ls -la $@ | grep -v -E '(.DS_Store|.localized)'; }
