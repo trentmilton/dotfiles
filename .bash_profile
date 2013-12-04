@@ -41,6 +41,9 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # If possible, add tab completion for many more commands
 [ -f /etc/bash_completion ] && source /etc/bash_completion
 
+# Allow autocompletion for GIT
+source ~/.git-completion.bash
+
 ########################
 # Alias
 ########################
@@ -50,8 +53,10 @@ alias sbp="source ~/.bash_profile"
 alias obp="subl ~/.bash_profile"
 
 # Github
-alias gl="git log"
-alias gaa="git add -a"
+alias gitl="git log"
+alias gita="git add -A"
+alias gitc="git commit -m $1"
+alias gits="git status"
 
 # Heroku
 alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
