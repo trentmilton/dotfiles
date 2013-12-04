@@ -57,6 +57,7 @@ alias gitl="git log"
 alias gita="git add -A"
 alias gitc="git commit -m $1"
 alias gits="git status"
+alias gitp="git push"
 
 # Heroku
 alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
