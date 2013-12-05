@@ -2,6 +2,8 @@
 export PATH="$HOME/bin:$PATH"
 # Git
 export PATH="/usr/local/git/bin:$PATH"
+# SVN
+export PATH="/opt/local/bin:$PATH"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -72,4 +74,3 @@ alias gitu="git ls-files . --exclude-standard --others"
 
 # Heroku
 alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
-
