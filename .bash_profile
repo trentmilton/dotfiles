@@ -46,6 +46,9 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Allow autocompletion for GIT
 source ~/.git-completion.bash
 
+# Allow autocompletion for SVN
+source ~/.svn-completion.bash
+
 # Ignore certain files and make it colourful
 export CLICOLOR=true
 export CLICOLOR_FORCE=true
