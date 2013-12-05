@@ -46,6 +46,11 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 # Allow autocompletion for GIT
 source ~/.git-completion.bash
 
+# Ignore certain files and make it colourful
+export CLICOLOR=true
+export CLICOLOR_FORCE=true
+function ll { ls -la $@ | grep -v -E '(.DS_Store|.localized)'; }
+
 ########################
 # Alias
 ########################
@@ -65,7 +70,3 @@ alias gitu="git ls-files . --exclude-standard --others"
 # Heroku
 alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
 
-# Ignore certain files and make it colourful
-export CLICOLOR=true
-export CLICOLOR_FORCE=true
-function ll { ls -la $@ | grep -v -E '(.DS_Store|.localized)'; }
