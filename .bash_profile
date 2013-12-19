@@ -72,5 +72,12 @@ alias gits="git status"
 alias gitp="git push"
 alias gitu="git ls-files . --exclude-standard --others"
 
+#svn
+alias svnaa="svn add --force * --auto-props --parents --depth infinity -q"
+alias svnc="svn commit -m $1"
+
 # Heroku
 alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
+
+# Ruby
+alias bi "bundle install"
