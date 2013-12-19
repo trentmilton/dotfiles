@@ -80,4 +80,4 @@ alias svnc="svn commit -m $1"
 alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
 
 # Ruby
-alias bi "bundle install"
+alias bi="bundle install"
