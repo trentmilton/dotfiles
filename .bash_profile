@@ -81,3 +81,6 @@ alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m '
 
 # Ruby
 alias bi="bundle install"
+
+# Python console autocompletion
+export PYTHONSTARTUP=$HOME/.pythonrc.py
