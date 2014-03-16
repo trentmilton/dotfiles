@@ -1,3 +1,22 @@
+########################
+# 1. Mine
+########################
+function ll {
+	ls -la $@ | grep -v -E '(.DS_Store|.localized)';
+}
+
+function formataliashelp {
+	echo -e ${BLUE}$1${NORMAL}'\t'$2
+}
+
+function seekanything {
+	FILE=$1;
+	mdfind -0 / $FILE | xargs -0 grep -Hi $FILE;
+}
+
+########################
+# 2. Other
+########################
 # Simple calculator
 function calc() {
 	local result=""
