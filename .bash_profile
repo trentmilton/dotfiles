@@ -1,3 +1,37 @@
+########################
+# Table of contents
+########################
+#
+#		1. Colours
+#		2. General
+# 	3. Functions
+#		4. Alias
+#
+########################
+
+########################
+# 1. Colours
+########################
+BLACK=$(tput setaf 0)
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+LIME_YELLOW=$(tput setaf 190)
+POWDER_BLUE=$(tput setaf 153)
+BLUE=$(tput setaf 4)
+MAGENTA=$(tput setaf 5)
+CYAN=$(tput setaf 6)
+WHITE=$(tput setaf 7)
+BRIGHT=$(tput bold)
+NORMAL=$(tput sgr0)
+BLINK=$(tput blink)
+REVERSE=$(tput smso)
+UNDERLINE=$(tput smul)
+ESCAPE="Esc[0m"
+
+########################
+# 2. General
+########################
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH"
 # Git
@@ -54,33 +88,84 @@ source ~/.svn-completion.bash
 # Ignore certain files and make it colourful
 export CLICOLOR=true
 export CLICOLOR_FORCE=true
-function ll { ls -la $@ | grep -v -E '(.DS_Store|.localized)'; }
 
 ########################
-# Alias
+# 3. Functions
+########################
+function ll {
+	ls -la $@ | grep -v -E '(.DS_Store|.localized)';
+}
+
+function formataliashelp {
+	echo -e ${BLUE}$1${NORMAL}'\t'$2
+}
+
+function seekanything {
+	FILE=$1;
+	mdfind -0 / $FILE | xargs -0 grep -Hi $FILE;
+}
+
+########################
+# 4. Alias
 ########################
 # Misc
 alias dev="cd ~/Dropbox/Development/"
 alias sbp="source ~/.bash_profile"
 alias obp="subl ~/.bash_profile"
 
+# Alias
+alias ah="
+formataliashelp 'git*' 'Git'
+formataliashelp 'h*' 'Heroku'
+formataliashelp 'ruby*' 'Ruby'
+formataliashelp 'seek' 'Search file system'
+formataliashelp 'svn*' 'Subversion'
+"
+
 # Git
-alias gitl="git log"
+alias gith="
+formataliashelp 'gita' 'git add -A'
+formataliashelp 'gitc' 'git commit'
+formataliashelp 'gitl' 'git log'
+formataliashelp 'gitp' 'git push'
+formataliashelp 'gits' 'git status'
+formataliashelp 'gitu' 'git ls-files . --exclude-standard --others'
+"
 alias gita="git add -A"
 alias gitc="git commit -m $1"
-alias gits="git status"
+alias gitl="git log"
 alias gitp="git push"
+alias gits="git status"
 alias gitu="git ls-files . --exclude-standard --others"
 
-#svn
+# SVN
+alias svnh="format alias help ${VAR2}"
+alias svnh="
+formataliashelp 'svnaa' 'svn add --force * --auto-props --parents --depth infinity -q'
+formataliashelp 'svnc' 'svn commit -m $1'
+formataliashelp 'svns' 'svn status'
+"
 alias svnaa="svn add --force * --auto-props --parents --depth infinity -q"
 alias svnc="svn commit -m $1"
+alias svns="svn status"
 
 # Heroku
+alias hh="
+formataliashelp 'hp' 'RAILS_ENV=production rake assets:precompile;git add -A;git commit -m \"assets compiled for Heroku\";git push heroku master;'
+"
 alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
 
 # Ruby
-alias bi="bundle install"
+alias rubyh="
+formataliashelp 'rubybi' 'bundle install'
+"
+alias rubybi="bundle install"
 
-# Python console autocompletion
+# Seek
+alias seekh="
+formataliashelp 'seek' ''
+"
+alias seek="seekanything $1"
+#"
+# Python shell autocomplete
 export PYTHONSTARTUP=$HOME/.pythonrc.py
