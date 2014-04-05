@@ -1,17 +1,34 @@
 ########################
 # 1. Mine
 ########################
-function ll {
-	ls -la $@ | grep -v -E '(.DS_Store|.localized)';
+function ll() {
+	ls -lahpF $@ | grep -v -E '(.DS_Store|.localized)';
 }
 
-function formataliashelp {
-	echo -e ${BLUE}$1${NORMAL}'\t'$2
+function formataliashelp() {
+	local item
+	while [ ${#} -gt 0 ]; do
+		item=${1}
+		alias $item | sed "s/alias $item=//" | { read LINE; echo -e ${BLUE}$1${NORMAL}'\t'"$LINE"; }
+		shift
+	done
 }
 
 function seekanything {
 	FILE=$1;
 	mdfind -0 / $FILE | xargs -0 grep -Hi $FILE;
+}
+
+#
+#	Subversion
+#
+
+function svnlistbranches() {
+	svnurl | { read url; svn ls ${url%trunk*}branches; }
+}
+
+function svnlistbranchfiles() {
+	svnurl | { read url; svn ls ${url%trunk*}branches/$1; }
 }
 
 ########################

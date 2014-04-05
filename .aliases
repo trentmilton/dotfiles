@@ -7,57 +7,44 @@ alias sbp="source ~/.bash_profile"
 alias obp="subl ~/.bash_profile"
 
 # Alias
-alias ah="
-formataliashelp 'git*' 'Git'
-formataliashelp 'h*' 'Heroku'
-formataliashelp 'ruby*' 'Ruby'
-formataliashelp 'seek' 'Search file system'
-formataliashelp 'svn*' 'Subversion'
-"
+alias ah="formataliashelp gith rubyh seekh svnh"
 
 # Git
-alias gith="
-formataliashelp 'gita' 'git add -A'
-formataliashelp 'gitc' 'git commit'
-formataliashelp 'gitl' 'git log'
-formataliashelp 'gitp' 'git push'
-formataliashelp 'gits' 'git status'
-formataliashelp 'gitu' 'git ls-files . --exclude-standard --others'
-"
+alias gith="formataliashelp gita gitc gitl gitp gitpar gits gitu"
 alias gita="git add -A"
 alias gitc="git commit -m $1"
 alias gitl="git log"
 alias gitp="git push"
+alias gitpar="git remote | xargs -L 1 git push"
 alias gits="git status"
 alias gitu="git ls-files . --exclude-standard --others"
 
 # SVN
-alias svnh="format alias help ${VAR2}"
-alias svnh="
-formataliashelp 'svnaa' 'svn add --force * --auto-props --parents --depth infinity -q'
-formataliashelp 'svnc' 'svn commit -m $1'
-formataliashelp 'svns' 'svn status'
-"
+alias svnh="formataliashelp svna svnaa svnc svnr svns svnu svnurl svnlrt svnlrb svnlrbf"
+alias svna="svn add $1"
 alias svnaa="svn add --force * --auto-props --parents --depth infinity -q"
 alias svnc="svn commit -m $1"
+alias svnr="svn revert $1"
 alias svns="svn status"
+alias svnu="svn update"
+alias svnurl="svn info | grep URL | cut -f2 -d' '"
+# List remote trunk files
+alias svnlrt="svnurl | svn ls $1"
+# List remote branches folders
+alias svnlrb="svnlistbranches"
+# List remote branches files
+alias svnlrbf="svnlistbranchfiles $1"
 
 # Heroku
-alias hh="
-formataliashelp 'hp' 'RAILS_ENV=production rake assets:precompile;git add -A;git commit -m \"assets compiled for Heroku\";git push heroku master;'
-"
+alias hh="formataliashelp hp"
 alias hp="RAILS_ENV=production rake assets:precompile;git add -A;git commit -m 'assets compiled for Heroku';git push heroku master;"
 
 # Ruby
-alias rubyh="
-formataliashelp 'rubybi' 'bundle install'
-"
+alias rubyh="formataliashelp rubybi"
 alias rubybi="bundle install"
 
 # Seek
-alias seekh="
-formataliashelp 'seek' ''
-"
+alias seekh="formataliashelp seek"
 alias seek="seekanything $1"
 
 ########################
