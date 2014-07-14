@@ -18,6 +18,7 @@ alias gitp="git push"
 alias gitpar="git remote | xargs -L 1 git push"
 alias gits="git status"
 alias gitu="git ls-files . --exclude-standard --others"
+alias gitd="git diff -- */"
 
 # SVN
 alias svnh="formataliashelp svna svnaa svnc svnr svns svnu svnurl svnlrt svnlrb svnlrbf"
